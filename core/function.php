@@ -92,6 +92,7 @@ function get_product($id){
     
     return null;
 }
+
 /**
  * Api for User
  */
@@ -170,6 +171,7 @@ function update_user($id,$email,$password,$role){
     return $stmt->execute();
 }
 
+
 /**
  * Authentication
  */
@@ -195,7 +197,11 @@ function login($email, $password){
     return false;
 }
 function register($email, $password){
+
     $sql = 'INSERT INTO USERS (ID, EMAIL, PASSWORD) VALUES (null, :email, :password)';
+
+    $sql = 'INSERT INTO USERS (id, email, password) VALUES (null, :email, :password)';
+
     $pdo = get_pdo();
 
     $stmt = $pdo->prepare($sql);

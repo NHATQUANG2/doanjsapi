@@ -6,7 +6,9 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 $user = login($email, $password);
+
 $_SESSION['user'] = $user;
+
 
 if($user == false){
     $response = array(
